@@ -1,0 +1,18 @@
+header,
+footer {
+    background-color: darkgray;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+    padding: 1rem;
+    text-align: center;
+}

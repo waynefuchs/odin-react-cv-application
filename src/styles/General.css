@@ -1,12 +1,11 @@
 .general {
     display: grid;
     grid-template-rows: auto;
-    /* gap: 1rem; */
 }
 
 .edit {
     padding: 1rem;
-    border: none;
+    border: 2px solid transparent;
 }
 
 .edit.large {
@@ -15,5 +14,5 @@
 
 .edit:focus {
     border: 2px solid black;
-    border-radius: 1rem;;
+    border-radius: 1rem;
 }

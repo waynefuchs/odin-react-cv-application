@@ -1,5 +1,6 @@
 import { Component } from "react";
 import uniqid from 'uniqid';
+import './styles/Education.css';
 
 class Education extends Component {
     render() {
@@ -19,13 +20,13 @@ class Education extends Component {
 
         ];
             return (
-            <div class="education">
+            <div className="base education">
                 <h2>Education</h2>
                 {
                     education.map(e => {
                         return (
-                            <div>
-                                <input className="edit"
+                            <div className="school">
+                                <input className="edit schoolname"
                                     type="text"
                                     data-id={e.id}
                                     value={e.school} />

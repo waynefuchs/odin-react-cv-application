@@ -1,7 +1,14 @@
+import Header from './Header';
+import General from './General';
+import Footer from './Footer';
+import './styles/App.css';
+
 function App() {
   return (
     <div>
-      <h1>initial commit</h1>
+      <Header />
+      <General />
+      <Footer />
     </div>
   );
 }

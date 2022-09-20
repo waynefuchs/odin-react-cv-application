@@ -1,0 +1,9 @@
+.school {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.schoolname {
+    font-weight: 700;
+    font-size: large;
+}

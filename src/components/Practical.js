@@ -1,3 +1,4 @@
+import '../styles/Practical.css';
 import { Component } from "react";
 
 class Practical extends Component {

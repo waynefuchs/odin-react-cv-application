@@ -24,13 +24,13 @@ class Practical extends Component {
                 data-id={e.id}
                 value={e.companyName}
               />
+              <button data-id={e.id}>Delete</button>
               <input
                 className="edit"
                 type="text"
                 data-id={e.id}
                 value={e.position}
               />
-              <button data-id={e.id}>Delete</button>
               <input
                 className="edit"
                 type="text"

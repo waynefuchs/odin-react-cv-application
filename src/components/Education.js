@@ -1,6 +1,6 @@
 import { Component } from "react";
 import uniqid from "uniqid";
-import "./styles/Education.css";
+import "../styles/Education.css";
 
 class Education extends Component {
   render() {

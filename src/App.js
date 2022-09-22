@@ -1,9 +1,9 @@
 import './styles/App.css';
-import Header from './Header';
-import General from './General';
-import Footer from './Footer';
-import Education from './Education';
-import Practical from './Practical';
+import Header from './components/Header';
+import General from './components/General';
+import Footer from './components/Footer';
+import Education from './components/Education';
+import Practical from './components/Practical';
 
 function App() {
   return (

@@ -1,4 +1,4 @@
-import '../styles/Practical.css';
+import "../styles/Practical.css";
 import { Component } from "react";
 
 class Practical extends Component {
@@ -18,14 +18,13 @@ class Practical extends Component {
         <h2>Practical</h2>
         {practical.map((e) => {
           return (
-            <div className="practical">
+            <div className="work-experience">
               <input
-                className="edit"
+                className="edit company-name"
                 type="text"
                 data-id={e.id}
                 value={e.companyName}
               />
-              <button data-id={e.id}>Delete</button>
               <input
                 className="edit"
                 type="text"
@@ -38,18 +37,22 @@ class Practical extends Component {
                 data-id={e.id}
                 value={e.tasks}
               />
-              <input
-                className="edit"
-                type="text"
-                data-id={e.id}
-                value={e.dateFrom}
-              />
-              <input
-                className="edit"
-                type="text"
-                data-id={e.id}
-                value={e.dateTo}
-              />
+
+              <div>
+                <input
+                  className="edit"
+                  type="text"
+                  data-id={e.id}
+                  value={e.dateFrom}
+                />
+                <input
+                  className="edit"
+                  type="text"
+                  data-id={e.id}
+                  value={e.dateTo}
+                />
+              </div>
+              <button data-id={e.id}>Delete</button>
             </div>
           );
         })}

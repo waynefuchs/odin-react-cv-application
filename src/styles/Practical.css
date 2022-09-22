@@ -1,4 +1,9 @@
 .work-experience {
-    display: grid;
-    grid-template-columns: auto auto auto;
+  display: grid;
+  grid-template-columns: auto;
+}
+
+.company-name {
+  font-weight: 700;
+  font-size: large;
 }

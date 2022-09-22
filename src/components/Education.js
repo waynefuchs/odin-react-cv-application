@@ -25,7 +25,7 @@ class Education extends Component {
           return (
             <div className="school">
               <input
-                className="edit schoolname"
+                className="edit school-name"
                 type="text"
                 data-id={e.id}
                 value={e.school}

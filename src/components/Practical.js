@@ -1,5 +1,6 @@
 import "../styles/Practical.css";
 import { Component } from "react";
+import EditView from "./EditView";
 
 class Practical extends Component {
   render() {
@@ -12,6 +13,7 @@ class Practical extends Component {
         dateTo: "Oct 2022",
       },
     ];
+    const isEditing = true;
 
     return (
       <div className="practical">
@@ -19,38 +21,12 @@ class Practical extends Component {
         {practical.map((e) => {
           return (
             <div className="work-experience">
-              <input
-                className="edit company-name"
-                type="text"
-                data-id={e.id}
-                value={e.companyName}
-              />
-              <input
-                className="edit"
-                type="text"
-                data-id={e.id}
-                value={e.position}
-              />
-              <input
-                className="edit"
-                type="text"
-                data-id={e.id}
-                value={e.tasks}
-              />
-
+              <EditView isEditing={isEditing} className="company-name" id={e.id} value={e.companyName} />
+              <EditView isEditing={isEditing} id={e.id} value={e.position} />
+              <EditView isEditing={isEditing} id={e.id} value={e.tasks} />
               <div>
-                <input
-                  className="edit"
-                  type="text"
-                  data-id={e.id}
-                  value={e.dateFrom}
-                />
-                <input
-                  className="edit"
-                  type="text"
-                  data-id={e.id}
-                  value={e.dateTo}
-                />
+                <EditView isEditing={isEditing} id={e.id} value={e.dateFrom} />
+                <EditView isEditing={isEditing} id={e.id} value={e.dateTo} />
               </div>
               <button data-id={e.id}>Delete</button>
             </div>

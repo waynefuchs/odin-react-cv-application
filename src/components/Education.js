@@ -1,6 +1,7 @@
 import { Component } from "react";
 import uniqid from "uniqid";
 import "../styles/Education.css";
+import EditView from "./EditView";
 
 class Education extends Component {
   render() {
@@ -18,31 +19,16 @@ class Education extends Component {
         dates: "Sept 2019 - June 2022",
       },
     ];
+    const {isEditing} = this.props;    
     return (
       <div className="education">
         <h2>Education</h2>
         {education.map((e) => {
           return (
             <div className="school">
-              <input
-                className="edit school-name"
-                type="text"
-                data-id={e.id}
-                value={e.school}
-              />
-              <input
-                className="edit"
-                type="text"
-                data-id={e.id}
-                value={e.degree}
-              />
-              <button data-id={e.id}>Delete</button>
-              <input
-                className="edit"
-                type="text"
-                data-id={e.id}
-                value={e.dates}
-              />
+              <EditView className="school-name" isEditing={isEditing} id={e.id} value={e.school} />
+              <EditView isEditing={isEditing} id={e.id} value={e.degree} />
+              <EditView isEditing={isEditing} id={e.id} value={e.dates} />
             </div>
           );
         })}

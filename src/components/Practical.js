@@ -13,7 +13,7 @@ class Practical extends Component {
         dateTo: "Oct 2022",
       },
     ];
-    const isEditing = true;
+    const {isEditing} = this.props;
 
     return (
       <div className="practical">
@@ -28,7 +28,7 @@ class Practical extends Component {
                 <EditView isEditing={isEditing} id={e.id} value={e.dateFrom} />
                 <EditView isEditing={isEditing} id={e.id} value={e.dateTo} />
               </div>
-              <button data-id={e.id}>Delete</button>
+              {isEditing?(<button data-id={e.id}>Delete</button>):(null)}
             </div>
           );
         })}

@@ -6,15 +6,15 @@ import Education from './components/Education';
 import Practical from './components/Practical';
 
 function App() {
-  const isEditing = false;
+  const isEditing = true;
 
   return (
     <div>
       <Header />
       <div className="base">
         <General isEditing={isEditing} />
-        <Education />
-        <Practical />
+        <Education isEditing={isEditing} />
+        <Practical isEditing={isEditing} />
       </div>
       <Footer />
     </div>

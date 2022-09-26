@@ -1,50 +1,62 @@
-input[type=checkbox]{
-  height: 0;
-  width: 0;
-  visibility: hidden;
-}
-
-label {
-  cursor: pointer;
-  text-indent: -9999px;
-  width: 200px;
-  height: 100px;
-  background: grey;
-  display: block;
-  border-radius: 100px;
-  position: relative;
-}
-
-label:after {
-  content: '';
-  position: absolute;
-  top: 5px;
-  left: 5px;
-  width: 90px;
-  height: 90px;
-  background: #fff;
-  border-radius: 90px;
-  transition: 0.3s;
-}
-
-input:checked + label {
-  background: #bada55;
-}
-
-input:checked + label:after {
-  left: calc(100% - 5px);
-  transform: translateX(-100%);
-}
-
-label:active:after {
-  width: 130px;
-}
-
-/* centering
-body {
-  display: flex;
-  justify-content: center;
+#edit-toggle {
+  display: grid;
+  grid-template-columns: max-content max-content max-content;
   align-items: center;
-  height: 100vh;
+  gap: 1rem;
 }
+
+
+/*
+  Modified from Codepen by Marcus Burnette:
+  https://codepen.io/mburnette/pen/LxNxNg
+
+  I wanted the slider to be more reactive and easily sizeable
 */
+
+:root {
+  --size-tog-width: 50px;
+  --size-tog-height: 25px;
+  --size-tog-offset: calc(var(--size-tog-height) * 0.10);
+}
+
+input[type=checkbox]{
+  display: none;
+}
+
+/* slider detent */
+label {
+	display: block;
+	position: relative;
+	cursor: pointer;
+	background: grey;
+	width: var(--size-tog-width);
+	height: var(--size-tog-height);
+	border-radius: 100px;
+}
+
+/* 
+slider circle 
+Note: width and height need to be adjusted
+*/
+label:after {
+	content: '';
+	position: absolute;
+	top: var(--size-tog-offset);
+	left: var(--size-tog-offset);
+	width: 40%;
+	height: 80%;
+	background: #fff;
+	border-radius: 50%;
+	transition: 0.3s;
+}
+
+/* active */
+input:checked + label {
+	background: #bada55;
+}
+
+/* animation */
+input:checked + label:after {
+	left: calc(100% - var(--size-tog-offset));
+	transform: translateX(-100%);
+}

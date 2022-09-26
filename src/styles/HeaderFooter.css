@@ -1,6 +1,10 @@
 header,
 footer {
+  display: grid;
   background-color: darkgray;
+  text-align: center;
+  grid-template-rows: auto;
+  justify-content: center;
 }
 
 header {
@@ -19,5 +23,4 @@ footer > h1,
 footer > h2 {
   margin: 0;
   padding: 1rem;
-  text-align: center;
 }

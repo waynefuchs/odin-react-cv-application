@@ -4,6 +4,7 @@ import General from './components/General';
 import Footer from './components/Footer';
 import Education from './components/Education';
 import Practical from './components/Practical';
+import ToggleSwitch from './components/ToggleSwitch';
 
 function App() {
   const isEditing = true;

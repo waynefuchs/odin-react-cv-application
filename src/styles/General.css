@@ -11,6 +11,7 @@
 .edit:hover {
     background-color: rgb(126, 151, 126);
     border-radius: 1rem;
+    border: 2px solid black;
 }
 
 .edit.large {

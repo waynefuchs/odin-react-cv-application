@@ -21,14 +21,12 @@ class Practical extends Component {
         {practical.map((e) => {
           return (
             <div className="work-experience">
-              <EditView isEditing={isEditing} className="company-name" id={e.id} value={e.companyName} />
-              <EditView isEditing={isEditing} id={e.id} value={e.position} />
-              <EditView isEditing={isEditing} id={e.id} value={e.tasks} />
-              <div>
-                <EditView isEditing={isEditing} id={e.id} value={e.dateFrom} />
-                <EditView isEditing={isEditing} id={e.id} value={e.dateTo} />
-              </div>
-              {isEditing?(<button data-id={e.id}>Delete</button>):(null)}
+              <EditView isEditing={isEditing} className="company company-name" id={e.id} value={e.companyName} />
+              {isEditing?(<button className="delete" data-id={e.id}>Delete</button>):(null)}
+              <EditView isEditing={isEditing} className="title" id={e.id} value={e.position} />
+              <EditView isEditing={isEditing} className="description" id={e.id} value={e.tasks} />
+              <EditView isEditing={isEditing} className="start-date" id={e.id} value={e.dateFrom} />
+              <EditView isEditing={isEditing} className="end-date" id={e.id} value={e.dateTo} />
             </div>
           );
         })}

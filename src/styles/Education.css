@@ -1,6 +1,13 @@
+/* .education {
+    display: grid;
+    gap: 1rem;
+} */
+
 .school {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto auto auto auto;
+    gap: 1rem;
+    padding-bottom: 1rem;
 }
 
 .school-name {

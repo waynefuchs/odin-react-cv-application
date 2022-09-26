@@ -29,6 +29,7 @@ class Education extends Component {
               <EditView className="school-name" isEditing={isEditing} id={e.id} value={e.school} />
               <EditView isEditing={isEditing} id={e.id} value={e.degree} />
               <EditView isEditing={isEditing} id={e.id} value={e.dates} />
+              {isEditing?<button id={e.id}>Delete</button>:null}
             </div>
           );
         })}

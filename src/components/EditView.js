@@ -1,10 +1,13 @@
 function EditView(props) {
   return props.isEditing ? (
-    <div className={["edit"].concat([props.className]).join(" ")} type="text">
+    <div 
+      className={["edit"].concat([props.className]).join(" ")} 
+      type="text">
       {props.value}
     </div>
   ) : (
     <input
+      onChange={props.edit}
       className={["edit"].concat([props.className]).join(" ")}
       type="text"
       data-id={props.id}

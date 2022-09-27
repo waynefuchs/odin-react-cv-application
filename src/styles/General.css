@@ -9,7 +9,7 @@
 }
 
 .edit:hover {
-    background-color: rgb(126, 151, 126);
+    background-color: #bada55;
     border-radius: 1rem;
     border: 2px solid black;
 }

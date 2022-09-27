@@ -14,9 +14,9 @@
 */
 
 :root {
-  --size-tog-width: 50px;
-  --size-tog-height: 25px;
-  --size-tog-offset: calc(var(--size-tog-height) * 0.10);
+  --size-tog-width: 60px;
+  --size-tog-height: 30px;
+  --size-tog-offset: 10%;
 }
 
 input[type=checkbox]{
@@ -42,7 +42,7 @@ label:after {
 	content: '';
 	position: absolute;
 	top: var(--size-tog-offset);
-	left: var(--size-tog-offset);
+	left: calc(var(--size-tog-offset) - 1px);
 	width: 40%;
 	height: 80%;
 	background: #fff;

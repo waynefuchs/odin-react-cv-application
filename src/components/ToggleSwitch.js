@@ -6,7 +6,7 @@ class ToggleSwitch extends Component {
         return (
             <div id="edit-toggle">
                 <h3>Edit</h3>
-                <input type="checkbox" id="edit-switch"/>
+                <input type="checkbox" id="edit-switch" onChange={this.state.setEditing(false)} />
                 <label htmlFor="edit-switch"></label>
                 <h3>View</h3>
             </div>

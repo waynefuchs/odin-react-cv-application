@@ -4,22 +4,38 @@ import General from './components/General';
 import Footer from './components/Footer';
 import Education from './components/Education';
 import Practical from './components/Practical';
-import ToggleSwitch from './components/ToggleSwitch';
+import { Component } from 'react';
 
-function App() {
-  const isEditing = true;
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      isEditing: true,
+    }
+    this.setEditing = this.setEditing.bind(this);
+  }
 
-  return (
-    <div>
-      <Header />
-      <div className="base">
-        <General isEditing={isEditing} />
-        <Education isEditing={isEditing} />
-        <Practical isEditing={isEditing} />
+  setEditing(status) {
+    this.setState({
+      isEditing: status,
+    });
+  }
+
+  render() {
+    const isEditing = true;
+
+    return (
+      <div>
+        <Header />
+        <div className="base">
+          <General isEditing={isEditing} />
+          <Education isEditing={isEditing} />
+          <Practical isEditing={isEditing} />
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
-  );
+    );
+  }
 }
 
 export default App;

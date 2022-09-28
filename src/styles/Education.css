@@ -3,14 +3,26 @@
     gap: 1rem;
 } */
 
+.school-heading {
+  display: grid;
+  grid-template-columns: auto auto;
+  padding-bottom: 1rem;
+  min-width: 80vw;
+}
+
+.school-button {
+    justify-self: right;
+}
+
 .school {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    gap: 1rem;
-    padding-bottom: 1rem;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  min-width: 80vw;
 }
 
 .school-name {
-    font-weight: 700;
-    font-size: large;
+  font-weight: 700;
+  font-size: large;
 }

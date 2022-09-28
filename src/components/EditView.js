@@ -12,8 +12,7 @@ function EditView(props) {
     <input
       onChange={props.edit}
       className={["edit"].concat([props.className]).join(" ")}
-      type="text"
-      data-id={props.id}
+      type={'type' in props ? props.type : "text"}
       value={props.value}
       placeholder={props.placeholder}
     />

@@ -23,12 +23,14 @@ class General extends Component {
           edit={(e) => edit('email', e.target.value)}
           isViewing={isViewing} 
           value={email} 
+          type="email"
           placeholder="Email" />
 
         <EditView 
           edit={(e) => edit('phone', e.target.value)}
           isViewing={isViewing} 
           value={phone}
+          type="tel"
           placeholder="Phone" />
       </div>
     );

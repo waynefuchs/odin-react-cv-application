@@ -36,10 +36,10 @@ class App extends Component {
             isViewing={this.state.isViewing}
             name={this.state.name}
             email={this.state.email}
-            phone={this.state.phone}
-          />
-          {/* <Education isViewing={this.state.isViewing} /> */}
-          {/* <Practical isViewing={this.state.isViewing} /> */}
+            phone={this.state.phone} />
+          <Education isViewing={this.state.isViewing} />
+          <Practical 
+            isViewing={this.state.isViewing} />
         </div>
         <Footer />
       </div>

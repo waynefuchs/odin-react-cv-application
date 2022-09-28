@@ -8,26 +8,26 @@ class General extends Component {
     // const email = "johndoe@deer.com";
     // const phone = "(123) 123-1234";
 
-    const { edit, isEditing, name, email, phone } = this.props;
+    const { edit, isViewing, name, email, phone } = this.props;
 
     return (
       <div className="general">
         <EditView 
           edit={(e) => edit('name', e.target.value)}
-          isEditing={isEditing} 
+          isViewing={isViewing} 
           className="large" 
           value={name} 
           placeholder="Your Name" />
 
         <EditView 
           edit={(e) => edit('email', e.target.value)}
-          isEditing={isEditing} 
+          isViewing={isViewing} 
           value={email} 
           placeholder="Email" />
 
         <EditView 
           edit={(e) => edit('phone', e.target.value)}
-          isEditing={isEditing} 
+          isViewing={isViewing} 
           value={phone}
           placeholder="Phone" />
       </div>

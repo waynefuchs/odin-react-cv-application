@@ -10,32 +10,36 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      isEditing: false,
+      isViewing: false,
       name: "",
       email: "",
       phone: "",
     };
-    this.setIsEditing = this.setIsEditing.bind(this);
+    this.setIsViewing = this.setIsViewing.bind(this);
   }
 
-  setIsEditing = (status) => this.setState({ isEditing: status });
+  setIsViewing = (status) => {
+    this.setState({ isViewing: status });
+  }
 
-  setEdit = (key, value) => this.setState({[key]: value});
+  setEditValue = (key, value) => this.setState({[key]: value});
 
   render() {
     return (
       <div>
-        <Header sliderAction={this.setIsEditing} />
+        <Header 
+          isViewing={this.state.isViewing} 
+          sliderAction={this.setIsViewing} />
         <div className="base">
           <General
-            edit={this.setEdit}
-            isEditing={this.state.isEditing}
+            edit={this.setEditValue}
+            isViewing={this.state.isViewing}
             name={this.state.name}
             email={this.state.email}
             phone={this.state.phone}
           />
-          <Education isEditing={this.state.isEditing} />
-          <Practical isEditing={this.state.isEditing} />
+          {/* <Education isViewing={this.state.isViewing} /> */}
+          {/* <Practical isViewing={this.state.isViewing} /> */}
         </div>
         <Footer />
       </div>

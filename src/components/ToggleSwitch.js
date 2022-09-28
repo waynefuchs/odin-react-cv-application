@@ -12,6 +12,7 @@ class ToggleSwitch extends Component {
           type="checkbox"
           id="edit-switch"
           onChange={(e) => sliderAction(e.target.checked)}
+          checked={this.props.isViewing}
         />
         <label htmlFor="edit-switch"></label>
         <h3>View</h3>

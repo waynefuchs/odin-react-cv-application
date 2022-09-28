@@ -1,32 +1,123 @@
 import "../styles/Practical.css";
 import { Component } from "react";
 import EditView from "./EditView";
+import uniqid from "uniqid";
 
 class Practical extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      practical: [],
+    };
+
+    this.addPractical = this.addPractical.bind(this);
+    this.deletePractical = this.deletePractical.bind(this);
+    this.updatePractical = this.updatePractical.bind(this);
+  }
+
+  addPractical() {
+    this.setState({
+      practical: [
+        ...this.state.practical,
+        {
+          id: uniqid(),
+          title: "",
+          companyName: "",
+          position: "",
+          description: "",
+          dateFrom: "",
+          dateTo: "",
+        },
+      ],
+    });
+  }
+
+  deletePractical(id) {
+    this.setState({
+      practical: this.state.practical.filter((e) => e.id !== id),
+    });
+  }
+
+  updatePractical(id, key, value) {
+    this.setState({
+      practical: this.state.practical.map((e) => {
+        if(e.id === id) e[key] = value;
+        return e;
+      })
+    })
+  }
+
   render() {
-    const practical = [
-      {
-        companyName: "Company Inc.",
-        position: "Worker Guy",
-        tasks: "helper, doer, gopher, manager",
-        dateFrom: "Jan 2000",
-        dateTo: "Oct 2022",
-      },
-    ];
-    const {isEditing} = this.props;
+    const { isViewing } = this.props;
 
     return (
       <div className="practical">
-        <h2>Practical</h2>
-        {practical.map((e) => {
+        <div className="practical-heading">
+          <h2>Practical</h2>
+          {!isViewing ? (
+            <button
+              className="school-button"
+              onClick={() => this.addPractical()}
+            >
+              Add
+            </button>
+          ) : null}
+        </div>
+
+        {this.state.practical.map((prac) => {
           return (
-            <div className="work-experience">
-              <EditView isEditing={isEditing} className="company company-name" id={e.id} value={e.companyName} />
-              {isEditing?(<button className="delete" data-id={e.id}>Delete</button>):(null)}
-              <EditView isEditing={isEditing} className="title" id={e.id} value={e.position} />
-              <EditView isEditing={isEditing} className="description" id={e.id} value={e.tasks} />
-              <EditView isEditing={isEditing} className="start-date" id={e.id} value={e.dateFrom} />
-              <EditView isEditing={isEditing} className="end-date" id={e.id} value={e.dateTo} />
+            <div className="work-experience" key={prac.id}>
+              <EditView
+                isViewing={isViewing}
+                className="company company-name"
+                placeholder="Company Name"
+                key={`companyName-${prac.id}`}
+                edit={(e) => this.updatePractical(prac.id, 'companyName', e.target.value)}
+                value={prac.companyName}
+              />
+              {!isViewing ? (
+                <button 
+                  className="delete" 
+                  key={`delete-${prac.id}`}
+                  onClick={() => this.deletePractical(prac.id)}
+                  data-id={prac.id}>
+                    Delete
+                </button>
+              ) : null}
+              
+              <EditView
+                isViewing={isViewing}
+                className="title"
+                placeholder="Position"
+                key={`title-${prac.id}`}
+                edit={(e) => this.updatePractical(prac.id, 'position', e.target.value)}
+                value={prac.position}
+              />
+              <EditView
+                isViewing={isViewing}
+                className="description"
+                placeholder="Description"
+                key={`description-${prac.id}`}
+                edit={(e) => this.updatePractical(prac.id, 'description', e.target.value)}
+                value={prac.description}
+              />
+              <EditView
+                isViewing={isViewing}
+                className="start-date"
+                placeholder="Start Date"
+                key={`dateFrom-${prac.id}`}
+                edit={(e) => this.updatePractical(prac.id, 'dateFrom', e.target.value)}
+                value={prac.dateFrom}
+              />
+              <EditView
+                isViewing={isViewing}
+                className="end-date"
+                placeholder="end-date"
+                key={`dateTo-${prac.id}`}
+                edit={(e) => this.updatePractical(prac.id, 'dateTo', e.target.value)}
+                value={prac.dateTo}
+              />
             </div>
           );
         })}

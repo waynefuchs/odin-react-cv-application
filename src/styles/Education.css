@@ -11,15 +11,22 @@
 }
 
 .school-button {
-    justify-self: right;
+  justify-self: right;
 }
 
 .school {
   display: grid;
-  grid-template-columns: auto auto auto auto;
   gap: 1rem;
   padding-bottom: 1rem;
   min-width: 80vw;
+}
+
+.school-edit {
+  grid-template-columns: auto auto auto auto;
+}
+
+.school-view {
+  grid-template-columns: auto auto auto;
 }
 
 .school-name {

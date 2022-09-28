@@ -1,3 +1,10 @@
+.practical-heading {
+  display: grid;
+  grid-template-columns: auto auto;
+  padding-bottom: 1rem;
+  min-width: 80vw;
+}
+
 .work-experience {
   display: grid;
   grid-template-columns: auto auto auto auto;
@@ -5,10 +12,12 @@
   grid-template-areas:
     "company company company delete"
     "title start-date end-date ."
-    "description description . .";
+    "description description description .";
 
-  gap: 1rem;
-  padding-bottom: 1rem;
+  gap: .25rem;
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  border-left: 2px solid black;
 }
 
 .company-name {

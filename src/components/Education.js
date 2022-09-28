@@ -7,20 +7,7 @@ class Education extends Component {
   constructor() {
     super();
     this.state = {
-      education: [
-        {
-          id: uniqid(),
-          school: "School Name",
-          degree: "Title of Study",
-          dates: "Sept 2019 - June 2022",
-        },
-        {
-          id: uniqid(),
-          school: "Another School Name",
-          degree: "Some other Title of Study",
-          dates: "Sept 2019 - June 2022",
-        },
-      ]  
+      education: [],
     };
     this.setEducation = this.setEducation.bind(this);
     this.deleteEducation = this.deleteEducation.bind(this);
@@ -29,78 +16,96 @@ class Education extends Component {
 
   addEducation() {
     this.setState({
-      education: [...this.state.education, {
-        id: uniqid(),
-        school: "",
-        degree: "",
-        dates: ""
-      }]
-    })
+      education: [
+        ...this.state.education,
+        {
+          id: uniqid(),
+          school: "",
+          degree: "",
+          dates: "",
+        },
+      ],
+    });
   }
 
   deleteEducation(id) {
     this.setState({
-      education: this.state.education.filter(e => e.id !== id)
+      education: this.state.education.filter((e) => e.id !== id),
     });
   }
 
   setEducation(id, key, value) {
     this.setState({
-      education: this.state.education.map(e => {
-        if(e.id === id) e[key] = value;
+      education: this.state.education.map((e) => {
+        if (e.id === id) e[key] = value;
         return e;
-      })
+      }),
     });
   }
 
   render() {
-    const {isViewing} = this.props;
-    if(!this.state.education.length && isViewing) return null;
+    const { isViewing } = this.props;
+    if (!this.state.education.length && isViewing) return null;
     return (
       <div className="education">
         <div className="school-heading">
           <h2>Education</h2>
-          {!isViewing
-            ? <button 
+          {!isViewing ? (
+            <button
               className="school-button"
-              onClick={() => this.addEducation()}>
-               Add
-              </button>
-            : null
-          }
+              onClick={() => this.addEducation()}
+            >
+              Add
+            </button>
+          ) : null}
         </div>
 
         {this.state.education.map((edu) => {
           return (
-            <div className="school" key={edu.id}>
-              <EditView 
+            <div
+              className={
+                isViewing ? "school school-view" : "school school-edit"
+              }
+              key={edu.id}
+            >
+              <EditView
                 key={`school-${edu.id}`}
-                className="school-name" 
-                edit={(event) => this.setEducation(edu.id, "school", event.target.value)}
-                isViewing={isViewing} 
+                className="school-name"
+                edit={(event) =>
+                  this.setEducation(edu.id, "school", event.target.value)
+                }
+                isViewing={isViewing}
                 value={edu.school}
-                placeholder="School Name" />
-              <EditView 
+                placeholder="School Name"
+              />
+              <EditView
                 key={`degree-${edu.id}`}
-                edit={(event) => this.setEducation(edu.id, "degree", event.target.value)}
-                isViewing={isViewing} 
+                edit={(event) =>
+                  this.setEducation(edu.id, "degree", event.target.value)
+                }
+                isViewing={isViewing}
                 value={edu.degree}
-                placeholder="Degree" />
-              <EditView 
+                placeholder="Degree"
+              />
+              <EditView
                 key={`dates-${edu.id}`}
-                edit={(event) => this.setEducation(edu.id, "dates", event.target.value)}
-                isViewing={isViewing} 
+                edit={(event) =>
+                  this.setEducation(edu.id, "dates", event.target.value)
+                }
+                isViewing={isViewing}
                 value={edu.dates}
-                placeholder="Dates" />
-              {!isViewing
-                ? <button 
-                    className="school-button"
-                    key={`delete-${edu.id}`}
-                    onClick={(e) => this.deleteEducation(edu.id)}
-                    id={edu.id}>
-                      Delete
-                  </button>
-                : null}
+                placeholder="Dates"
+              />
+              {!isViewing ? (
+                <button
+                  className="school-button"
+                  key={`delete-${edu.id}`}
+                  onClick={(e) => this.deleteEducation(edu.id)}
+                  id={edu.id}
+                >
+                  Delete
+                </button>
+              ) : null}
             </div>
           );
         })}

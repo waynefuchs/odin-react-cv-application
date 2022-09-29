@@ -12,13 +12,18 @@ import { Component } from "react";
 class App extends Component {
   constructor() {
     super();
+
     this.state = {
       isViewing: false,
       name: "",
       email: "",
       phone: "",
+      mount: true,
     };
+
     this.setIsViewing = this.setIsViewing.bind(this);
+    this.mountCounter = () => this.setState({ mount: true });
+    this.unmountCounter = () => this.setState({ mount: false });
   }
 
   setIsViewing = (status) => {
@@ -34,7 +39,19 @@ class App extends Component {
           isViewing={this.state.isViewing}
           sliderAction={this.setIsViewing}
         />
-        <Counter />
+
+        <button 
+          onClick={this.mountCounter} 
+          disabled={this.state.mount}>
+            Mount
+        </button>
+        <button 
+          onClick={this.unmountCounter}
+          disabled={!this.state.mount}>
+            Unmount
+        </button>
+        {this.state.mount ? <Counter /> : null}
+        
         <div className="base">
           <General
             edit={this.setEditValue}

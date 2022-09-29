@@ -5,9 +5,11 @@ class Counter extends Component {
     super();
 
     this.state = {
-      counter: 0
-    }
+      counter: 0,
+    };
 
+    this.increment = () => this.setState({ counter: this.state.counter + 1 });
+    this.decrement = () => this.setState({ counter: this.state.counter - 1 });
 
     console.log("Constructor");
   }
@@ -15,9 +17,7 @@ class Counter extends Component {
   render() {
     return (
       <div>
-        <div clasName="counter">
-          Counter {this.state.counter}
-        </div>
+        <div clasName="counter">Counter {this.state.counter}</div>
       </div>
     );
   }

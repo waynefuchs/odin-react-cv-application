@@ -14,6 +14,12 @@ class Counter extends Component {
     console.log("Constructor");
   }
 
+  componentDidMount() {
+
+    console.log("ComponentDidMount");
+    console.log("----------Mounting Complete----------");
+  }
+  
   render() {
     return (
       <div>
@@ -22,6 +28,11 @@ class Counter extends Component {
         <div className="counter">Counter {this.state.counter}</div>
       </div>
     );
+  }
+  
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    console.log("ComponentDidUpdate");
+    console.log("----------Update Complete----------");
   }
 }
 

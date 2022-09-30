@@ -18,7 +18,11 @@ class App extends Component {
       name: "",
       email: "",
       phone: "",
+
+      // Lifecycle Tutorial
+      showLifecycle: true,
       mount: true,
+      ignoreProp: 0,
     };
 
     this.setIsViewing = this.setIsViewing.bind(this);
@@ -32,6 +36,23 @@ class App extends Component {
 
   setEditValue = (key, value) => this.setState({ [key]: value });
 
+  LifeCycle() {
+    if(!this.state.showLifecycle) return null;
+    return (
+      <div>
+        <button onClick={this.mountCounter} disabled={this.state.mount}>
+          Mount
+        </button>
+        <button onClick={this.unmountCounter} disabled={!this.state.mount}>
+          Unmount
+        </button>
+        {this.state.mount 
+          ? <Counter ignoreProp={this.state.ignoreProp} /> 
+          : null}
+      </div>
+    );
+  }
+
   render() {
     return (
       <div>
@@ -40,18 +61,8 @@ class App extends Component {
           sliderAction={this.setIsViewing}
         />
 
-        <button 
-          onClick={this.mountCounter} 
-          disabled={this.state.mount}>
-            Mount
-        </button>
-        <button 
-          onClick={this.unmountCounter}
-          disabled={!this.state.mount}>
-            Unmount
-        </button>
-        {this.state.mount ? <Counter /> : null}
-        
+        {this.LifeCycle()}
+
         <div className="base">
           <General
             edit={this.setEditValue}

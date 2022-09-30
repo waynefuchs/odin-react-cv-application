@@ -1,3 +1,4 @@
+import "../styles/Counter.css";
 const { Component } = require("react");
 
 class Counter extends Component {
@@ -6,12 +7,10 @@ class Counter extends Component {
 
     this.state = {
       counter: 0,
-      ignoreProp: 0,
     };
 
     this.increment = () => this.setState({ counter: this.state.counter + 1 });
     this.decrement = () => this.setState({ counter: this.state.counter - 1 });
-    this.ignoreProp = () => this.setState({ ignoreProp: Math.random() });
 
     console.log("Constructor");
   }
@@ -23,11 +22,11 @@ class Counter extends Component {
 
   render() {
     return (
-      <div>
-        <button onClick={this.ignoreProp}>Update State And Ignore</button>
+      <div className="counter-buttons">
         <button onClick={this.increment}>Increment</button>
         <button onClick={this.decrement}>Decrement</button>
-        <div className="counter">Counter {this.state.counter}</div>
+        <h2 className="counter">Counter: {this.state.counter}</h2>
+        <h2 className="counter">ignoreProp {this.props.ignoreProp}</h2>
       </div>
     );
   }
@@ -47,10 +46,11 @@ class Counter extends Component {
       "ignoreProp" in nextProps &&
       this.props.ignoreProp !== nextProps.ignoreProp
     ) {
-      console.log("shouldComponentUpdate: Render");
+      console.log("shouldComponentUpdate: Do Not Render");
       return false;
     }
-    console.log("shouldComponentUpdate: Do Not Render");
+
+    console.log("shouldComponentUpdate: Render");
     return true;
   }
 }

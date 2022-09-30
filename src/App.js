@@ -19,15 +19,20 @@ class App extends Component {
       email: "",
       phone: "",
 
-      // Lifecycle Tutorial
+      // (S) Lifecycle Tutorial
       showLifecycle: true,
       mount: true,
       ignoreProp: 0,
+      // (E) Lifecycle Tutorial
     };
 
     this.setIsViewing = this.setIsViewing.bind(this);
+
+    // (S) Lifecycle Tutorial
     this.mountCounter = () => this.setState({ mount: true });
     this.unmountCounter = () => this.setState({ mount: false });
+    this.ignoreProp = () => this.setState({ ignoreProp: Math.random() });
+    // (E) Lifecycle Tutorial
   }
 
   setIsViewing = (status) => {
@@ -37,7 +42,7 @@ class App extends Component {
   setEditValue = (key, value) => this.setState({ [key]: value });
 
   LifeCycle() {
-    if(!this.state.showLifecycle) return null;
+    if (!this.state.showLifecycle) return null;
     return (
       <div>
         <button onClick={this.mountCounter} disabled={this.state.mount}>
@@ -46,16 +51,17 @@ class App extends Component {
         <button onClick={this.unmountCounter} disabled={!this.state.mount}>
           Unmount
         </button>
-        {this.state.mount 
-          ? <Counter ignoreProp={this.state.ignoreProp} /> 
-          : null}
+        <button onClick={this.ignoreProp}>Update State And Ignore</button>
+        {this.state.mount ? (
+          <Counter ignoreProp={this.state.ignoreProp} />
+        ) : null}
       </div>
     );
   }
 
   render() {
     return (
-      <div>
+      <center>
         <Header
           isViewing={this.state.isViewing}
           sliderAction={this.setIsViewing}
@@ -75,7 +81,7 @@ class App extends Component {
           <Practical isViewing={this.state.isViewing} />
         </div>
         <Footer />
-      </div>
+      </center>
     );
   }
 }

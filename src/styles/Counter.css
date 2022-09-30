@@ -1,0 +1,5 @@
+.counter-buttons {
+  display: grid;
+  grid-template-rows: auto;
+  place-items: center;
+}

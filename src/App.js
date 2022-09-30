@@ -23,6 +23,7 @@ class App extends Component {
       showLifecycle: true,
       mount: true,
       ignoreProp: 0,
+      seed: 0,
       // (E) Lifecycle Tutorial
     };
 
@@ -32,6 +33,8 @@ class App extends Component {
     this.mountCounter = () => this.setState({ mount: true });
     this.unmountCounter = () => this.setState({ mount: false });
     this.ignoreProp = () => this.setState({ ignoreProp: Math.random() });
+    this.generateSeed = () =>
+      this.setState({ seed: Number.parseInt(Math.random() * 100) });
     // (E) Lifecycle Tutorial
   }
 
@@ -52,8 +55,9 @@ class App extends Component {
           Unmount
         </button>
         <button onClick={this.ignoreProp}>Update State And Ignore</button>
+        <button onClick={this.generateSeed}>Generate Seed</button>
         {this.state.mount ? (
-          <Counter ignoreProp={this.state.ignoreProp} />
+          <Counter ignoreProp={this.state.ignoreProp} seed={this.state.seed} />
         ) : null}
       </div>
     );

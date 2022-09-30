@@ -25,8 +25,9 @@ class Counter extends Component {
       <div className="counter-buttons">
         <button onClick={this.increment}>Increment</button>
         <button onClick={this.decrement}>Decrement</button>
-        <h2 className="counter">Counter: {this.state.counter}</h2>
-        <h2 className="counter">ignoreProp {this.props.ignoreProp}</h2>
+        <h2>Counter: {this.state.counter}</h2>
+        <h2>Seed {this.props.seed}</h2>
+        <h2>ignoreProp {this.props.ignoreProp}</h2>
       </div>
     );
   }
@@ -52,6 +53,22 @@ class Counter extends Component {
 
     console.log("shouldComponentUpdate: Render");
     return true;
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    if ("seed" in props && state.seed !== props.seed) {
+      return {
+        seed: props.seed,
+        counter: props.seed,
+      };
+    }
+
+    // Don't modify state
+    return null;
+  }
+
+  getSnapshotBeforeUpdate(prevProps, prevState) {
+    return null;
   }
 }
 

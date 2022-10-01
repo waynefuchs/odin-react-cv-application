@@ -24,6 +24,7 @@ class App extends Component {
       mount: true,
       ignoreProp: 0,
       seed: 0,
+      showErrorComponent: false,
       // (E) Lifecycle Tutorial
     };
 
@@ -35,6 +36,7 @@ class App extends Component {
     this.ignoreProp = () => this.setState({ ignoreProp: Math.random() });
     this.generateSeed = () =>
       this.setState({ seed: Number.parseInt(Math.random() * 100) });
+    this.toggleError = () => this.setState({showErrorComponent: !this.state.showErrorComponent})
     // (E) Lifecycle Tutorial
   }
 
@@ -56,8 +58,12 @@ class App extends Component {
         </button>
         <button onClick={this.ignoreProp}>Update State And Ignore</button>
         <button onClick={this.generateSeed}>Generate Seed</button>
+        <button onClick={this.toggleError}>Toggle Error</button>
         {this.state.mount ? (
-          <Counter ignoreProp={this.state.ignoreProp} seed={this.state.seed} />
+          <Counter 
+            ignoreProp={this.state.ignoreProp} 
+            seed={this.state.seed}
+            showErrorComponent={this.state.showErrorComponent} />
         ) : null}
       </div>
     );

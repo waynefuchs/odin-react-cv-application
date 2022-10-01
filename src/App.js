@@ -20,7 +20,7 @@ class App extends Component {
       phone: "",
 
       // (S) Lifecycle Tutorial
-      showLifecycle: true,
+      showLifecycle: false,
       mount: true,
       ignoreProp: 0,
       seed: 0,

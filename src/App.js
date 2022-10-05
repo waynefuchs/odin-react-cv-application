@@ -15,9 +15,6 @@ class App extends Component {
 
     this.state = {
       isViewing: false,
-      name: "",
-      email: "",
-      phone: "",
 
       // (S) Lifecycle Tutorial
       showLifecycle: false,
@@ -71,7 +68,7 @@ class App extends Component {
 
   render() {
     return (
-      <center>
+      <div>
         <Header
           isViewing={this.state.isViewing}
           sliderAction={this.setIsViewing}
@@ -91,7 +88,7 @@ class App extends Component {
           <Practical isViewing={this.state.isViewing} />
         </div>
         <Footer />
-      </center>
+      </div>
     );
   }
 }
